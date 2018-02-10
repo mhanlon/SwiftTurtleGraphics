@@ -1,18 +1,10 @@
 /*:
- # Turtles!
- This playground is designed to let you experiment with driving a 'turtle' around the screen to draw shapes. These commands were introduced in the [Fundamentals of Programming course](https://github.com/mhanlon/Fundamentals-of-Programming-Playground).
+ [Previous](@previous)
 
- You can use the following commands, play around with them and see what you can make!
- * `forward(`*n*`)` - go forward *n* steps
- * `backward(`*n*`)` - go backward *n* steps
- * `right(`*n*`)` - turn right *some number* of degrees
- * `left(`*n*`)` - turn left *n* of degrees
- * `setColor(`*c*`)` - set the color of the pen
- * `penUp()` - lift the pen so it doesn't draw while we move
- * `penDown()` - put the pen back down
- * `home()` - go to the center of the screen
- * `setPenSize(`*n*`)` - Change the width of the line to *n*
- * `setSpeed(`*speed*`)` - Change the speed of drawing to one of `.slow`, `.normal`, `.brisk`, `.fast`, `.superFast` (speed only works once and will be set to the last value you set)
+ # Draw the Irish Flag
+ **Goal**: Draw the Irish flag using a turtle
+ 
+ Using the commands you just learned, try drawing the Irish flag. Or improve the flag we've drawn below.
  
  */
 
@@ -34,6 +26,22 @@ func right(_ degrees:Int) {
 
 func left(_ degrees:Int) {
     turtle.left(turnDegrees: Float(degrees))
+}
+
+func west() {
+    turtle.west()
+}
+
+func east() {
+    turtle.east()
+}
+
+func north() {
+    turtle.north()
+}
+
+func south() {
+    turtle.south()
 }
 
 func setColor(_ color:UIColor) {
@@ -73,41 +81,45 @@ func setTurtleShape(_ shape: String) {
 //#-end-hidden-code
 
 //#-editable-code
-setPenSize(3)
-forward(50)
-right(60)
-setColor(UIColor.cyan)
-forward(50)
-right(60)
-setColor(UIColor.green)
-forward(50)
-right(60)
-setColor(UIColor.red)
-forward(50)
-right(60)
-setColor(UIColor.orange)
-forward(50)
-right(60)
-setColor(UIColor.blue)
-forward(50)
 
-setPenSize(2)
+// Draw the green stripe
+setPenSize(50)
+setColor(.green)
+right(180)
+forward(100)
+
+// Pick the pen up so we don't draw when we're moving to draw the next stripe.
 penUp()
-right(45)
-backward(100)
+
+// Move into position for the next stripe.
+left(90)
+forward(50)
+left(90)
+
+// Set our color and draw our middle stripe.
+setColor(.white)
 penDown()
-for _ in 1...45 {
-    setColor(randomColor())
-    forward(30)
-    right(90)
-    forward(5)
-    right(85)
-    forward(28)
-}
+forward(100)
+
+penUp()
+right(90)
+forward(50)
+right(90)
+setColor(.orange)
+penDown()
+forward(100)
 //#-end-editable-code
+/*:
+ What happens if you delete the `penUp()` lines?
+
+ What happens if you change the size of the pen or the length of the stripes?
+ 
+ Did we need to set the pen color to white? Why might we want to?
+*/
 
 //#-hidden-code
 vc.addTurtle(turtle)
 PlaygroundPage.current.liveView = vc
 //#-end-hidden-code
-//: You can add additional pages to this Swift Playground if you want to play around with
+
+//:[Next](@next)
