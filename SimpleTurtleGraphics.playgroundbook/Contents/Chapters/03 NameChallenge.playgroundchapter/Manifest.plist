@@ -8,7 +8,9 @@
 	<string>Name Challenge</string>
 	<key>Pages</key>
 	<array>
-		<string>Intro.playgroundpage</string>
+		<string>01 Intro.playgroundpage</string>
+		<string>02 TryYourOwn.playgroundpage</string>
+		<string>03 LetterExamples.playgroundpage</string>
 	</array>
 </dict>
 </plist>
