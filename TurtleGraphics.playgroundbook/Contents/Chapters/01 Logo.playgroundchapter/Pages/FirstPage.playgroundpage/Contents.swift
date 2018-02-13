@@ -11,7 +11,7 @@
  
  For the explanation of the code and how it all works it's worth running through the playground book.
  You can use the following commands, play around with them and see what you can make!
- * let turtle = Turtle(name:"Waffles", avatar:"🦊") - Create a turtle named Waffles for us to use. You can use any emoji for the avatar.
+ * `let turtle = Turtle(name:"Waffles", avatar:"🦊")` - Create a turtle named Waffles for us to use. You can use any emoji for the avatar.
  * `turtle.forward(distance:`*n*`)` - go forward *n* steps
  * `backward(distance:`*n*`)` - go backward *n* steps
  * `right(turnDegrees:`*n*`)` - turn right *some number* of degrees
