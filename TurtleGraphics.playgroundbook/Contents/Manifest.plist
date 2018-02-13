@@ -4,8 +4,10 @@
 <dict>
 	<key>Chapters</key>
 	<array>
-		<string>Logo.playgroundchapter</string>
-		<string>NameChallenge.playgroundchapter</string>
+		<string>01 Logo.playgroundchapter</string>
+		<string>02 FlagChallenge.playgroundchapter</string>
+		<string>03 NameChallenge.playgroundchapter</string>
+		<string>04 OnYourOwnChallenge.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
 	<string>ie.thecodehub.playgrounds.turtleGraphics</string>

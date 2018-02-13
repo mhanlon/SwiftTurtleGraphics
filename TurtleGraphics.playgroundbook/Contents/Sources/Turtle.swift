@@ -109,7 +109,7 @@ public class Turtle {
         commandStack.append(command)
     }
     
-    public func setPenSize(penSize: Float) {
+    public func setPenSize(_ penSize: Float) {
         let command = TurtleCommand.setpensize(penSize)
         commandStack.append(command)
     }

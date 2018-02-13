@@ -68,7 +68,7 @@ func home() {
 }
 
 func setPenSize(_ penSize: Int) {
-    turtle.setPenSize(penSize:Float(penSize))
+    turtle.setPenSize(Float(penSize))
 }
 
 let vc = TurtleViewController()

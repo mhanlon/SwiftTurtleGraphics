@@ -1,9 +1,14 @@
 /*:
+ [Previous](@previous)
  # Write my name
  **Goal**: Write out my name, using a turtle.
  
- We could use our turtle to draw shapes
+ We could use our turtle to draw shapes, now can we make letters out of those shapes?
  
+ Below we draw the name "MATT."
+ 
+ Can you change the letters we draw? Can you write your own name?
+
  */
 
 import PlaygroundSupport
@@ -82,15 +87,17 @@ turtle1.forward(distance: 50)
 turtle1.left(turnDegrees: 90)
 turtle1.forward(distance: 200)
 
-// Which letter was hardest to draw?
-// Can you write your own name?
-// TODO: Use turtle heading property to turn
-// FUT: talk about odd spacing of characters
-// FUT: use variables to define space
-// FUT: functions to repeat letters
-// FUT: design your own font for one letter, how do you want the letter to look?
-
+/*:
+ Which letter was hardest to draw?
+ 
+ Can you write your own name?
+ 
+ Could your organize this code better so that we can re-use some of the work we've done already for future words we might want to write out?
+ 
+ */
 let vc = TurtleViewController()
 vc.setSpeed(.brisk)
 vc.addTurtle(turtle1)
 PlaygroundPage.current.liveView = vc
+
+//: [Next](@next)

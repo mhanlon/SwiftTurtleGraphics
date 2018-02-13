@@ -59,7 +59,7 @@ func home() {
 }
 
 func setPenSize(_ penSize: Int) {
-    turtle.setPenSize(penSize:Float(penSize))
+    turtle.setPenSize(Float(penSize))
 }
 
 let vc = TurtleViewController()
@@ -95,8 +95,6 @@ penDown()
 
 /*:
  Which letter was hardest to draw?
-
- Can you write your own name?
 
  Could your organize this code better so that we can re-use some of the work we've done already for future words we might want to write out?
  
