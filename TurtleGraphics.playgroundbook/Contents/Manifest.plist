@@ -18,7 +18,7 @@
 	<key>DevelopmentRegion</key>
 	<string>en</string>
 	<key>ImageReference</key>
-	<string>LogoPlaygroundIcon.png</string>
+	<string>TurtleGraphicsPlaygroundIcon.png</string>
 	<key>Name</key>
 	<string>Exploring with Turtle Graphics</string>
 	<key>SwiftVersion</key>
