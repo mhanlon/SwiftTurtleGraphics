@@ -27,7 +27,7 @@ This playground is designed to be more like the Python treatment of turtle graph
 
 You can use the following commands, play around with them and see what you can make!
 
-* `let turtle = Turtle(name:"Waffles", avatar:"í ¾í¶Š")` - Create a turtle named Waffles for us to use. You can use any emoji for the avatar.
+* `let turtle = Turtle(name:"Waffles")` - Create a turtle named Waffles for us to use. You can use any emoji for the avatar.
 * `turtle.forward(distance:`*n*`)` - go forward *n* steps
 * `backward(distance:`*n*`)` - go backward *n* steps
 * `right(turnDegrees:`*n*`)` - turn right *some number* of degrees
