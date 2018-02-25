@@ -83,28 +83,29 @@ func setTurtleShape(_ shape: String) {
 }
 
 //#-code-completion(everything, hide)
-//#-code-completion(identifier, show, forward(_:), right(_:), drawThinLine(), backward(_:), left(_:), setColor(_:), penUp(), penDown(), home(), setPenSize(_:), setSpeed(_:), hideDegreesHelper(), showDegreesHelper(), for, randomColor(), Speed.fast, Speed.slow, Speed.superFast, randomColor(), .slow, .normal, .brisk, .fast, .superFast)
-//#-code-completion(literal, show, Speed.slow, Speed.normal, Speed.brisk, Speed.fast, Speed.superFast)
+//#-code-completion(identifier, show, forward(_:), right(_:), drawThinLine(), backward(_:), left(_:), setColor(_:), penUp(), penDown(), home(), setPenSize(_:), setSpeed(_:), hideDegreesHelper(), showDegreesHelper(), for, randomColor(), Speed.fast, Speed.slow, Speed.superFast, randomColor(), Speed.slow, Speed.normal, Speed.brisk, Speed.fast, Speed.superFast)
+//#-code-completion(literal, show, color)
 //#-code-completion(keyword, for)
+//#-code-completion(description, show, .fast, Speed.slow, Speed.superFast, randomColor(), Speed.slow, Speed.normal, Speed.brisk, Speed.fast, Speed.superFast)
 //#-end-hidden-code
 
 //#-editable-code
 setPenSize(3)
 forward(50)
 right(60)
-setColor(UIColor.cyan)
+setColor(#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
 forward(50)
 right(60)
-setColor(UIColor.green)
+setColor(#colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1))
 forward(50)
 right(60)
-setColor(UIColor.red)
+setColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
 forward(50)
 right(60)
-setColor(UIColor.orange)
+setColor(#colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
 forward(50)
 right(60)
-setColor(UIColor.blue)
+setColor(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1))
 forward(50)
 
 setPenSize(2)

@@ -10,9 +10,9 @@
 		<string>04 OnYourOwn.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
-	<string>ie.thecodehub.playgrounds.simpleTurtleGraphics</string>
+	<string>ie.thecodehub.playgrounds.simpleturtlegraphics</string>
 	<key>ContentVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>DeploymentTarget</key>
 	<string>ios10.0</string>
 	<key>DevelopmentRegion</key>

@@ -10,9 +10,9 @@
 		<string>04 OnYourOwnChallenge.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
-	<string>ie.thecodehub.playgrounds.turtleGraphics</string>
+	<string>ie.thecodehub.playgrounds.turtlegraphics</string>
 	<key>ContentVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>DeploymentTarget</key>
 	<string>ios10.0</string>
 	<key>DevelopmentRegion</key>
