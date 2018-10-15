@@ -16,8 +16,15 @@ public class Turtle {
     var isTurtleVisible = true
     
     var speed: Speed!
-    var commandStack = [TurtleCommand]()
+    var commandStack = [TurtleCommand]() {
+        didSet {
+            commandAddedBlock?()
+        }
+    }
+    var historicalCommandStack = [TurtleCommand]()
     let avatar = TurtleAvatar(frame:CGRect(x:0,y:0, width:30, height:30))
+    
+    var commandAddedBlock: (()->())?
     
     public var currentPoint: CGPoint!
     
@@ -41,8 +48,9 @@ public class Turtle {
         self.init(name: name, avatar: nil)
     }
     
-    public func setAvatar(_ avatar: String) {
-        self.avatar.setAvatar(avatar, size:24.0)
+    public func flushCommandStack() {
+        self.historicalCommandStack.append(contentsOf: self.commandStack)
+        self.commandStack = []
     }
     
     public func setAvatar(_ avatar: Character) {
@@ -178,3 +186,4 @@ public enum Speed: Double {
     superFast = 0.00001,
     instant = 0.000001
 }
+
