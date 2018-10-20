@@ -2,11 +2,14 @@ import Foundation
 import UIKit
 
 let kDegreesHelperViewTag = 9007
-
 public class TurtleView: UIView, CAAnimationDelegate {
+    static let kStrokeEndConstant = "strokeEnd"
+    static let kRoundLine = "round"
+    
     public var turtles = [Turtle]()
     public var animations:[(CALayer, CAAnimation, UIView?, CGAffineTransform?, CGPoint?)] = []
     //    public var speed = 0.00001 // For circles, especially...
+    var animatingLayer: CALayer?
     public var speed = Speed.normal
     public var degreesHelperView: UIImageView?
     var gridView: GridView?
@@ -27,6 +30,8 @@ public class TurtleView: UIView, CAAnimationDelegate {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         // TODO: Add the grid view
+        //        self.gridView = GridView(frame: self.frame)
+        //        self.addSubview(self.gridView!)
         self.degreesHelperView = UIImageView(image: UIImage(named: "DegreesHelper.png", in: nil, compatibleWith: nil))
         self.degreesHelperView!.frame = CGRect(x: 0, y:0, width: 200, height: 200)
         self.toggleDegreesHelper()
@@ -38,7 +43,11 @@ public class TurtleView: UIView, CAAnimationDelegate {
     }
     
     public func showDegreesHelper() {
-        self.addSubview(self.degreesHelperView!)
+        guard let degreesHelper = self.degreesHelperView else {
+            print("No degrees helper was initialized -- check to make sure the DegreesHelper.png was included in the project!")
+            return
+        }
+        self.addSubview(degreesHelper)
     }
     public func hideDegreesHelper() {
         self.degreesHelperView!.removeFromSuperview()
@@ -61,10 +70,7 @@ public class TurtleView: UIView, CAAnimationDelegate {
     // * bob.right(45)
     // * bob.forward(4))
     // so lines you might expect to be in front of another might not be.
-    public override func draw(_ rect: CGRect) {
-        // TODO: Draw a grid view?
-        super.draw(rect)
-    }
+    
     func positionAvatarForTurtle(turtle: Turtle) {
         let avatar = turtle.avatar
         avatar.center = CGPoint(x: turtle.currentPoint.x, y: turtle.currentPoint.y )
@@ -86,6 +92,8 @@ public class TurtleView: UIView, CAAnimationDelegate {
     
     public func processCommandStack(turtle: Turtle, shouldRunImmediately:Bool) {
         // Dequeue the commands from our turtles and start drawing them
+        // FIXME: This needs to be queued up a little bit if we're going to support more dynamic
+        // FIXME: command-running. Wait until one drawing set finishes before starting the next
         let commandStack = turtle.commandStack
         for command in commandStack {
             let startingPoint = turtle.currentPoint
@@ -158,9 +166,9 @@ public class TurtleView: UIView, CAAnimationDelegate {
             shapeLayer.path = path.cgPath
             shapeLayer.strokeColor = penColor?.cgColor
             shapeLayer.lineWidth = CGFloat(turtle.penSize)
-            shapeLayer.lineJoin = "round"
-            shapeLayer.lineCap = "round"
-            let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            shapeLayer.lineJoin = TurtleView.kRoundLine
+            shapeLayer.lineCap = TurtleView.kRoundLine
+            let strokeEndAnimation = CABasicAnimation(keyPath: TurtleView.kStrokeEndConstant)
             strokeEndAnimation.fromValue = 0.0
             strokeEndAnimation.isRemovedOnCompletion = true
             strokeEndAnimation.delegate = self
@@ -173,7 +181,7 @@ public class TurtleView: UIView, CAAnimationDelegate {
                 let radians = ( turtle.heading * ( .pi / 180.0 ) )
                 avatar = self.viewWithTag(turtle.tag!)
                 if avatar != nil {
-                    avatar!.layer.zPosition = .greatestFiniteMagnitude
+                    avatar!.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
                 } else {
                     avatar = turtle.avatar
                     avatar!.tag = turtle.tag!
@@ -188,9 +196,13 @@ public class TurtleView: UIView, CAAnimationDelegate {
         if ( shouldRunImmediately ) {
             self.runNextCommand()
         }
+        // Now we need to flush out the turtle's command stack so we don't keep running the same commands
+        // The old, run commands will be placed into a historical stack
+        turtle.flushCommandStack()
     }
     
     public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.animatingLayer?.removeAllAnimations()
         // Pop the next command off the stack to draw it...
         self.runNextCommand()
     }
@@ -202,20 +214,22 @@ public class TurtleView: UIView, CAAnimationDelegate {
         let (layer, animation, avatar, transform, point) = self.animations.removeFirst()
         self.layer.addSublayer(layer)
         animation.duration = self.speed.rawValue
-        layer.add(animation, forKey: "strokeEnd")
+        
+        layer.add(animation, forKey: TurtleView.kStrokeEndConstant)
+        self.animatingLayer = layer
         
         // TODO: If the animation takes the element off screen should we bounce the avatar a bit and stop them?
         UIView.animate(withDuration: self.speed.rawValue, animations: {
             // Turtles need to follow the path, too...
             avatar?.transform = transform!
             avatar?.center = point!
-            //
+        
             if ( self.isShowingDegreesHelper ) {
                 self.degreesHelperView!.transform = transform!
             }
+            avatar?.layoutIfNeeded()
         })
-        
-        setNeedsLayout()
+        layer.layoutIfNeeded()
     }
 }
 
@@ -227,6 +241,7 @@ class GridView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.backgroundColor = UIColor.clear.cgColor
+        self.backgroundColor = UIColor.clear
         self.horizontalLines = self.fourLines()
         self.verticalLines = self.fourLines()
         let lines = self.horizontalLines + (self.verticalLines)

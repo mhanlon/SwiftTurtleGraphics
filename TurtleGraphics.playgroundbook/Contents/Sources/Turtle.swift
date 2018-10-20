@@ -16,8 +16,15 @@ public class Turtle {
     var isTurtleVisible = true
     
     var speed: Speed!
-    var commandStack = [TurtleCommand]()
+    var commandStack = [TurtleCommand]() {
+        didSet {
+            commandAddedBlock?()
+        }
+    }
+    var historicalCommandStack = [TurtleCommand]()
     let avatar = TurtleAvatar(frame:CGRect(x:0,y:0, width:30, height:30))
+    
+    var commandAddedBlock: (()->())?
     
     public var currentPoint: CGPoint!
     
@@ -25,7 +32,7 @@ public class Turtle {
         self.init(name: "Waffles", avatar:nil)
     }
     
-    public init(name: String?, avatar: Character?) {
+    public init(name: String?, avatar: String?) {
         self.name = name
         self.penColor = .black
         self.backgroundColor = .white
@@ -34,19 +41,24 @@ public class Turtle {
         self.heading = 0.0 // By default we will be heading "up"
         self.currentPoint = CGPoint(x: 0.0, y:0.0)
         if let av = avatar {
-            self.avatar.setAvatar(String(av), size:24.0) // 17 is the system default size
+            self.avatar.setAvatar(av, size:24.0) // 17 is the system default size
         }
     }
     public convenience init(name: String?) {
         self.init(name: name, avatar: nil)
     }
     
-    public func setAvatar(_ avatar: Character) {
-        self.avatar.setAvatar(String(avatar), size:24.0)
+    public func flushCommandStack() {
+        self.historicalCommandStack.append(contentsOf: self.commandStack)
+        self.commandStack = []
     }
     
-    public func setAvatar(_ avatar: Character, size: Float) {
-        self.avatar.setAvatar(String(avatar), size:size)
+    public func setAvatar(_ avatar: String) {
+        self.avatar.setAvatar(avatar, size:24.0)
+    }
+    
+    public func setAvatar(_ avatar: String, size: Float) {
+        self.avatar.setAvatar(avatar, size:size)
     }
     
     public func forward(distance: Float) {
@@ -174,3 +186,4 @@ public enum Speed: Double {
     superFast = 0.00001,
     instant = 0.000001
 }
+
