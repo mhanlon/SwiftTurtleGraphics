@@ -79,10 +79,7 @@ func setSpeed(_ speed: Speed) {
 }
 
 func setTurtleShape(_ shape: String) {
-    let shapeChars = Array(shape)
-    if shapeChars.count > 0 {
-        turtle.setAvatar(shapeChars[0])
-    }
+    turtle.setAvatar(shape)
 }
 
 //#-code-completion(everything, hide)
