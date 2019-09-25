@@ -113,7 +113,7 @@ penUp()
 right(45)
 backward(100)
 penDown()
-for _ in 1...45 {
+Turtle.repeat(45) {
     setColor(randomColor())
     forward(30)
     right(90)
