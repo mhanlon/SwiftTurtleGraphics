@@ -187,3 +187,10 @@ public enum Speed: Double {
     instant = 0.000001
 }
 
+extension Turtle {
+    public static func `repeat`(_ times: Int, _ code: @escaping ()->()) {
+        for i in 1...times {
+            code()
+        }
+    }
+}
