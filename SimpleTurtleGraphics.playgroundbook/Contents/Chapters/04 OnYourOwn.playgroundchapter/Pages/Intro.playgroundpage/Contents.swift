@@ -75,7 +75,7 @@ func setTurtleShape(_ shape: String) {
 //#-code-completion(everything, hide)
 //#-code-completion(identifier, show, forward(_:), right(_:), drawThinLine(), backward(_:), left(_:), setColor(_:), penUp(), penDown(), home(), setPenSize(_:), setSpeed(_:), hideDegreesHelper(), showDegreesHelper(), for, randomColor(), Speed.fast, Speed.slow, Speed.superFast, randomColor(), .slow, .normal, .brisk, .fast, .superFast)
 //#-code-completion(literal, show, color)
-//#-code-completion(keyword, for)
+//#-code-completion(keyword, show, for)
 //#-end-hidden-code
 
 //#-editable-code
