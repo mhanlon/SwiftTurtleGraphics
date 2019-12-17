@@ -109,7 +109,7 @@ func drawOurTree() {
     home()
 }
 //#-code-completion(everything, hide)
-//#-code-completion(identifier, show, drawOurBareTree(), drawOurTree(), forward(_:), right(_:), drawThinLine(), backward(_:), left(_:), setColor(_:), penUp(), penDown(), home(), setPenSize(_:), setSpeed(_:), hideDegreesHelper(), showDegreesHelper(), for, randomColor(), Speed.fast, Speed.slow, Speed.superFast, randomColor(), .slow, .normal, .brisk, .fast, .superFast)
+//#-code-completion(identifier, show, drawOurBareTree(), drawOurTree(), forward(_:), right(_:), drawThinLine(), backward(_:), left(_:), setColor(_:), setBackgroundColor(_:), penUp(), penDown(), home(), setPenSize(_:), setSpeed(_:), hideDegreesHelper(), showDegreesHelper(), for, randomColor(), Speed.fast, Speed.slow, Speed.superFast, randomColor(), .slow, .normal, .brisk, .fast, .superFast)
 //#-code-completion(literal, show, color)
 //#-code-completion(keyword, show, for)
 //#-end-hidden-code
@@ -117,7 +117,7 @@ func drawOurTree() {
 //#-editable-code
 
 // You can use drawOurTree() or drawOurBareTree() here
-drawOurTree()
+drawOurBareTree()
 
 setColor(#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
 

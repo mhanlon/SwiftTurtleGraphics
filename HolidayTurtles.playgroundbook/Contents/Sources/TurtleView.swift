@@ -151,6 +151,12 @@ public class TurtleView: UIView, CAAnimationDelegate {
                 // paths, but maybe that's too hard (insert whiney voice)
             }
             
+            // Change our backgroundColor if we've been asked to.
+            var bgColor = turtle.backgroundColor
+            if ( self.backgroundColor != bgColor ) {
+                self.backgroundColor = bgColor
+            }
+            
             // Set up the actual line our turtle will draw
             turtle.currentPoint = pt
             let path = UIBezierPath()

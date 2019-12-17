@@ -62,6 +62,10 @@ public func setColor(_ color:UIColor) {
     turtle.setColor(color)
 }
 
+public func setBackgroundColor(_ color:UIColor) {
+    turtle.setBackgroundColor(color)
+}
+
 public func penUp() {
     turtle.penUp()
 }
