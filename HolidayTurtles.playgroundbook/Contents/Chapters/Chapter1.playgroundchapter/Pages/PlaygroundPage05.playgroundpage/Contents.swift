@@ -1,9 +1,11 @@
 /*:
  [Previous](@previous)
- # More Fun at the Holidays
- **Goal**: Decorate a holiday scene!
+ # Setting the scene
+ **Goal**: Change up our background color
  
- We can still draw our tree, if we like, with `drawOurTree()` or `drawOurBareTree()`, but let's add some more wintry fun, like a snowman!
+ So far we've drawn our holiday decorations against a pretty whited out scene... what if we wanted to set the background color to something more evening-like?
+ 
+ You can now use the `setBackgroundColor()` command to shed a little less light on the situation.
  
 */
 
@@ -97,6 +99,97 @@ func drawOurTree() {
         forward(5)
     }
     
+    func drawOurSnowMan() {
+        // Draw our snowman base
+        setColor(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0))
+        setPenSize(2)
+        penDown()
+        left(30)
+        // Bottom ball
+        for i in 1 ... 36 {
+            forward(15)
+            right(10)
+        }
+        // The middle ball
+        for i in 1 ... 36 {
+            forward(10)
+            left(10)
+        }
+        // Get back to the top of the middle ball
+        penUp()
+        for i in 1 ... 18 {
+            forward(10)
+            left(10)
+        }
+
+        penDown()
+        // Draw the head
+        for i in 1 ... 36 {
+            forward(7)
+            right(10)
+        }
+
+        penUp()
+            // Draw a hat
+        for i in 1 ... 18 {
+            forward(7)
+            right(10)
+        }
+        penDown()
+
+        setPenSize(7)
+        forward(40)
+        right(180)
+        forward(80)
+        left(180)
+        forward(20)
+        left(90)
+        forward(60)
+        right(90)
+        forward(40)
+        right(90)
+        forward(60)
+
+        penUp()
+
+        // Draw the eyes
+        forward(30)
+        setPenSize(9)
+        penDown()
+
+        right(90)
+        forward(2)
+        left(90)
+        forward(1)
+        right(90)
+        penUp()
+
+        forward(30)
+
+        penDown()
+        forward(1)
+        right(90)
+        forward(2)
+        penUp()
+
+            // Draw the nose
+        right(180)
+        forward(10)
+        left(90)
+        forward(9)
+        right(25)
+        setColor(#colorLiteral(red: 0.9372549019607843, green: 0.34901960784313724, blue: 0.19215686274509805, alpha: 1.0))
+        setPenSize(6)
+        penDown()
+
+        forward(25)
+        right(155)
+        forward(22)
+
+        penUp()
+
+    }
+    
     // Admire our work
     penUp()
     home()
@@ -109,126 +202,27 @@ func drawOurTree() {
 
 //#-editable-code
 
-// You can use drawOurTree() or drawOurBareTree() here
-drawOurBareTree()
+// You can use drawOurTree() or drawOurBareTree() or even drawOurSnowMan() here
 
-setColor(#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1))
+setBackgroundColor(#colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1))
 
-setPenSize(10)
-south()
-forward(50)
-west()
-forward(40)
-
-// Draw an ornament (remember to put the penDown()!)
-penDown()
-for i in 1...36 {
-    forward(1)
-    right(10)
-}
-
-// Admire our work
-penUp()
-home()
-right(120)
-
-forward(350)
-
-// Draw our snowman base
-setColor(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0))
-setPenSize(2)
-penDown()
-left(30)
-// Bottom ball
-for i in 1 ... 36 {
-    forward(15)
-    right(10)
-}
-// The middle ball
-for i in 1 ... 36 {
-    forward(10)
-    left(10)
-}
-// Get back to the top of the middle ball
-penUp()
-for i in 1 ... 18 {
-    forward(10)
-    left(10)
-}
-
-penDown()
-// Draw the head
-for i in 1 ... 36 {
-    forward(7)
-    right(10)
-}
-
-penUp()
-    // Draw a hat
-for i in 1 ... 18 {
-    forward(7)
-    right(10)
-}
-penDown()
-
-setPenSize(7)
-forward(40)
-right(180)
-forward(80)
-left(180)
-forward(20)
-left(90)
-forward(60)
-right(90)
-forward(40)
-right(90)
-forward(60)
-
-penUp()
-
-// Draw the eyes
-forward(30)
-setPenSize(9)
-penDown()
-
-right(90)
-forward(2)
-left(90)
-forward(1)
-right(90)
-penUp()
-
-forward(30)
-
+setColor(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1))
+setPenSize(5)
+// Draw a couple miniscule stars
 penDown()
 forward(1)
-right(90)
-forward(2)
 penUp()
-
-    // Draw the nose
-right(180)
-forward(10)
-left(90)
-forward(9)
-right(25)
-setColor(#colorLiteral(red: 0.9372549019607843, green: 0.34901960784313724, blue: 0.19215686274509805, alpha: 1.0))
-setPenSize(6)
+left(35)
+backward(100)
+setPenSize(8)
 penDown()
-
-forward(25)
-right(155)
-forward(22)
-
 penUp()
+right(70)
+forward(250)
 
+setPenSize(1)
+// Can you draw a better-looking star? Or is it snowing in our nighttime scene?
 
-home()
-
-
-//Admire our work
-penUp()
-home()
 
 
 
@@ -236,5 +230,6 @@ home()
 
 //#-hidden-code
 vc.addTurtle(turtle)
+vc.hideDegreesHelper()
 PlaygroundPage.current.liveView = vc
 //#-end-hidden-code
