@@ -151,6 +151,12 @@ public class TurtleView: UIView, CAAnimationDelegate {
                 // paths, but maybe that's too hard (insert whiney voice)
             }
             
+            // Change our backgroundColor if we've been asked to.
+            var bgColor = turtle.backgroundColor
+            if ( self.backgroundColor != bgColor ) {
+                self.backgroundColor = bgColor
+            }
+            
             // Set up the actual line our turtle will draw
             turtle.currentPoint = pt
             let path = UIBezierPath()
@@ -166,8 +172,8 @@ public class TurtleView: UIView, CAAnimationDelegate {
             shapeLayer.path = path.cgPath
             shapeLayer.strokeColor = penColor?.cgColor
             shapeLayer.lineWidth = CGFloat(turtle.penSize)
-            shapeLayer.lineJoin = TurtleView.kRoundLine
-            shapeLayer.lineCap = TurtleView.kRoundLine
+            shapeLayer.lineJoin = .round//CAShapeLayerLineJoin(rawValue: TurtleView.kRoundLine)
+            shapeLayer.lineCap = .round//CAShapeLayerLineCap(rawValue: TurtleView.kRoundLine)
             let strokeEndAnimation = CABasicAnimation(keyPath: TurtleView.kStrokeEndConstant)
             strokeEndAnimation.fromValue = 0.0
             strokeEndAnimation.isRemovedOnCompletion = true
