@@ -1,3 +1,11 @@
+//#-hidden-code
+
+import PlaygroundSupport
+import UIKit
+
+//#-end-hidden-code
+
+
 /*:
  [Previous](@previous)
  
@@ -7,9 +15,6 @@
  Using the commands you just learned, try drawing the Irish flag. Or improve the flag we've drawn below.
 
  */
-
-import PlaygroundSupport
-import UIKit
 
 let turtle = Turtle(name: "Waffles", avatar: "🦊")
 

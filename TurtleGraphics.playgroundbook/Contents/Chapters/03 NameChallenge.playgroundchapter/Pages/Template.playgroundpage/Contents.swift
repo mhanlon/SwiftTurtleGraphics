@@ -1,10 +1,15 @@
+//#-hidden-code
+
+import PlaygroundSupport
+import UIKit
+
+//#-end-hidden-code
+
+
 //: [Previous](@previous)
 //#-code-completion(everything, hide)
 //#-code-completion(bookauxiliarymodule, show)
 //#-code-completion(identifier, show, ., forward(), backward(), left(), right(), setPenSize(), setColor(), penUp(), penDown())
-import PlaygroundSupport
-import UIKit
-
 let turtle1 = Turtle(name: "Waffles", avatar: "🦊")
 //#-code-completion(identifier, show, turtle1)
 // Make your turtle do something interesting!

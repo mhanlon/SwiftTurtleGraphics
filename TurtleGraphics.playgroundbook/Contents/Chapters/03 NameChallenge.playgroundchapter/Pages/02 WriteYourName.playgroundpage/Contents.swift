@@ -1,3 +1,10 @@
+//#-hidden-code
+
+import PlaygroundSupport
+import UIKit
+
+//#-end-hidden-code
+
 /*:
  [Previous](@previous)
  # Write your own name
@@ -7,9 +14,6 @@
  
 
  */
-
-import PlaygroundSupport
-import UIKit
 
 let turtle1 = Turtle(name: "Waffles", avatar: "🦊")
 // Write out your name

@@ -12,7 +12,7 @@
 	<key>ContentIdentifier</key>
 	<string>ie.thecodehub.playgrounds.turtlegraphics</string>
 	<key>ContentVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>DeploymentTarget</key>
 	<string>ios10.0</string>
 	<key>DevelopmentRegion</key>
@@ -22,7 +22,7 @@
 	<key>Name</key>
 	<string>Exploring with Turtle Graphics</string>
 	<key>SwiftVersion</key>
-	<string>4.0</string>
+	<string>5.1</string>
 	<key>Version</key>
 	<string>3.0</string>
 </dict>

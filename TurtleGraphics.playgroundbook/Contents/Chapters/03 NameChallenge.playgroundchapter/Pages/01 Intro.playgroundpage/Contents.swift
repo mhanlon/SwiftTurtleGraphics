@@ -1,3 +1,10 @@
+//#-hidden-code
+
+import PlaygroundSupport
+import UIKit
+
+//#-end-hidden-code
+
 /*:
  [Previous](@previous)
  # Write my name
@@ -10,9 +17,6 @@
  Can you change the letters we draw? Can you write your own name?
 
  */
-
-import PlaygroundSupport
-import UIKit
 
 let turtle1 = Turtle(name: "Waffles", avatar: "🦊")
 // Write out my name
