@@ -5,11 +5,12 @@
 	<key>Chapters</key>
 	<array>
 		<string>Chapter1.playgroundchapter</string>
+		<string>Chapter2.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
 	<string>ie.thecodehub.playgrounds.HolidayTurtles</string>
 	<key>ContentVersion</key>
-	<string>1.0.2</string>
+	<string>1.0.3</string>
 	<key>DeploymentTarget</key>
 	<string>ios10.3</string>
 	<key>DevelopmentRegion</key>
